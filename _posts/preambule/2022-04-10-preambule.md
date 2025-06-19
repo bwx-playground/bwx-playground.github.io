@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  "Preamble!"
-categories: blog travel Bali
+categories: blog travel bali
+tags: bali personal_life
 ---
 ![sunset](/assets/img/20200122_190009.jpg)
 

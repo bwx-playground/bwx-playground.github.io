@@ -2,6 +2,7 @@
 layout: post
 title:  "be careful with memory compatibility!"
 categories: memory tech
+tags: fyi personal_life
 ---
 ![vivobook](/assets/img/vivobook.jpg)
 
