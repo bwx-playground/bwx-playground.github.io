@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="Helvetica, Arial, sans-serif">
+  <rect x="0" y="0" width="900" height="520" fill="#f7f8fa" rx="12"/>
+
+  <text x="450" y="35" text-anchor="middle" fill="#1a202c" font-size="15" font-weight="700">four separate "address books" — none of them talking to each other</text>
+
+  <!-- Row label: build time -->
+  <text x="30" y="90" fill="#4a5568" font-size="12" font-weight="600">while building</text>
+  <rect x="30" y="105" width="400" height="150" rx="6" fill="none" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Box 1 -->
+  <rect x="55" y="130" width="160" height="100" rx="8" fill="#fff5f5" stroke="#e53e3e" stroke-width="1.5"/>
+  <text x="135" y="153" text-anchor="middle" fill="#742a2a" font-size="12" font-weight="700">#1 — dind</text>
+  <text x="135" y="171" text-anchor="middle" fill="#4a5568" font-size="10">the container running</text>
+  <text x="135" y="184" text-anchor="middle" fill="#4a5568" font-size="10">the actual docker build</text>
+  <text x="135" y="207" text-anchor="middle" fill="#c53030" font-size="10.5">❌ "no such host"</text>
+  <text x="135" y="221" text-anchor="middle" fill="#2f855a" font-size="10.5">✅ taught it the address</text>
+
+  <!-- Arrow 1 to 2 -->
+  <line x1="220" y1="180" x2="255" y2="180" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow3)"/>
+
+  <!-- Box 2 -->
+  <rect x="260" y="130" width="160" height="100" rx="8" fill="#fff5f5" stroke="#e53e3e" stroke-width="1.5"/>
+  <text x="340" y="153" text-anchor="middle" fill="#742a2a" font-size="12" font-weight="700">#2 — nested builder</text>
+  <text x="340" y="171" text-anchor="middle" fill="#4a5568" font-size="10">a second container dind</text>
+  <text x="340" y="184" text-anchor="middle" fill="#4a5568" font-size="10">spins up to actually push</text>
+  <text x="340" y="207" text-anchor="middle" fill="#c53030" font-size="10.5">❌ same error, again</text>
+  <text x="340" y="221" text-anchor="middle" fill="#2f855a" font-size="10.5">✅ simplified the builder</text>
+
+  <!-- Row label: deploy time -->
+  <text x="470" y="90" fill="#4a5568" font-size="12" font-weight="600">while deploying</text>
+  <rect x="470" y="105" width="400" height="150" rx="6" fill="none" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Box 3 -->
+  <rect x="495" y="130" width="160" height="100" rx="8" fill="#fff5f5" stroke="#e53e3e" stroke-width="1.5"/>
+  <text x="575" y="153" text-anchor="middle" fill="#742a2a" font-size="12" font-weight="700">#3 — CoreDNS</text>
+  <text x="575" y="171" text-anchor="middle" fill="#4a5568" font-size="10">the cluster's own internal</text>
+  <text x="575" y="184" text-anchor="middle" fill="#4a5568" font-size="10">phone book, for every pod</text>
+  <text x="575" y="207" text-anchor="middle" fill="#c53030" font-size="10.5">❌ "no such host"</text>
+  <text x="575" y="221" text-anchor="middle" fill="#2f855a" font-size="10.5">✅ added a wildcard rule</text>
+
+  <!-- Arrow 3 to 4 -->
+  <line x1="660" y1="180" x2="695" y2="180" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow3)"/>
+
+  <!-- Box 4 -->
+  <rect x="700" y="130" width="160" height="100" rx="8" fill="#fff5f5" stroke="#e53e3e" stroke-width="1.5"/>
+  <text x="780" y="153" text-anchor="middle" fill="#742a2a" font-size="12" font-weight="700">#4 — the Pi itself</text>
+  <text x="780" y="171" text-anchor="middle" fill="#4a5568" font-size="10">the actual operating</text>
+  <text x="780" y="184" text-anchor="middle" fill="#4a5568" font-size="10">system, one level lower</text>
+  <text x="780" y="207" text-anchor="middle" fill="#c53030" font-size="10.5">❌ "no such host"</text>
+  <text x="780" y="221" text-anchor="middle" fill="#2f855a" font-size="10.5">✅ taught its resolver too</text>
+
+  <!-- Connector between the two groups -->
+  <line x1="430" y1="180" x2="465" y2="180" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="3,3"/>
+  <text x="447" y="120" text-anchor="middle" fill="#a0aec0" font-size="10">(separately)</text>
+
+  <!-- Bottom takeaway -->
+  <rect x="60" y="290" width="780" height="90" rx="10" fill="#edf2f7" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="450" y="320" text-anchor="middle" fill="#1a202c" font-size="12.5" font-weight="600">why four different fixes, not one</text>
+  <text x="450" y="344" text-anchor="middle" fill="#4a5568" font-size="11">each box above resolves hostnames on its own, independently of the other three —</text>
+  <text x="450" y="363" text-anchor="middle" fill="#4a5568" font-size="11">a laptop, a phone, and a smart TV on the same wifi don't share a brain either.</text>
+
+  <!-- Plot twist strip -->
+  <rect x="60" y="400" width="780" height="80" rx="10" fill="#fffaf0" stroke="#dd6b20" stroke-width="1.5"/>
+  <text x="450" y="428" text-anchor="middle" fill="#7b341e" font-size="12.5" font-weight="600">then, a fifth surprise — not DNS at all</text>
+  <text x="450" y="452" text-anchor="middle" fill="#7b341e" font-size="11">Cloudflare's free certificate only covers one level of subdomain.</text>
+  <text x="450" y="468" text-anchor="middle" fill="#7b341e" font-size="11">ip.homelab.icipicip.com → renamed to ip.icipicip.com, and it finally worked.</text>
+
+  <defs>
+    <marker id="arrow3" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+</svg>

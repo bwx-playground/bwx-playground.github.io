@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="Helvetica, Arial, sans-serif">
+  <rect x="0" y="0" width="900" height="560" fill="#f7f8fa" rx="12"/>
+
+  <!-- Entry points -->
+  <rect x="30" y="30" width="180" height="60" rx="10" fill="#2b6cb0"/>
+  <text x="120" y="55" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="600">Internet</text>
+  <text x="120" y="75" text-anchor="middle" fill="#dbeafe" font-size="11">random visitors</text>
+
+  <rect x="690" y="30" width="180" height="60" rx="10" fill="#2f855a"/>
+  <text x="780" y="55" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="600">Home LAN</text>
+  <text x="780" y="75" text-anchor="middle" fill="#dcfce7" font-size="11">just me, on wifi</text>
+
+  <!-- Cloudflare tunnel note -->
+  <text x="120" y="115" text-anchor="middle" fill="#4a5568" font-size="11">outbound-only tunnel</text>
+  <text x="120" y="128" text-anchor="middle" fill="#4a5568" font-size="11">(no open router ports)</text>
+
+  <!-- Arrows down to gateways -->
+  <line x1="120" y1="90" x2="120" y2="160" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="780" y1="90" x2="780" y2="160" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Two front doors -->
+  <rect x="30" y="160" width="180" height="70" rx="10" fill="#1a365d"/>
+  <text x="120" y="188" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="600">External Gateway</text>
+  <text x="120" y="206" text-anchor="middle" fill="#bee3f8" font-size="11">only path in from</text>
+  <text x="120" y="219" text-anchor="middle" fill="#bee3f8" font-size="11">the public internet</text>
+
+  <rect x="690" y="160" width="180" height="70" rx="10" fill="#22543d"/>
+  <text x="780" y="188" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="600">Internal Gateway</text>
+  <text x="780" y="206" text-anchor="middle" fill="#c6f6d5" font-size="11">only reachable from</text>
+  <text x="780" y="219" text-anchor="middle" fill="#c6f6d5" font-size="11">my own network</text>
+
+  <!-- Arrows converging into mesh -->
+  <line x1="120" y1="230" x2="330" y2="290" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="780" y1="230" x2="570" y2="290" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Mesh boundary -->
+  <rect x="80" y="290" width="740" height="220" rx="16" fill="none" stroke="#805ad5" stroke-width="2" stroke-dasharray="6,5"/>
+  <text x="450" y="316" text-anchor="middle" fill="#553c9a" font-size="13" font-weight="600">Istio ambient mesh — every connection inside here is automatically encrypted</text>
+
+  <!-- Services inside mesh -->
+  <rect x="115" y="345" width="150" height="65" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="190" y="373" text-anchor="middle" fill="#1a202c" font-size="13" font-weight="600">zot</text>
+  <text x="190" y="390" text-anchor="middle" fill="#4a5568" font-size="10">private app store</text>
+
+  <rect x="290" y="345" width="150" height="65" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="365" y="373" text-anchor="middle" fill="#1a202c" font-size="13" font-weight="600">ArgoCD</text>
+  <text x="365" y="390" text-anchor="middle" fill="#4a5568" font-size="10">deploys my apps</text>
+
+  <rect x="465" y="345" width="150" height="65" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="540" y="373" text-anchor="middle" fill="#1a202c" font-size="13" font-weight="600">cert-manager</text>
+  <text x="540" y="390" text-anchor="middle" fill="#4a5568" font-size="10">issues real HTTPS</text>
+
+  <rect x="640" y="345" width="150" height="65" rx="8" fill="#fffaf0" stroke="#dd6b20" stroke-width="1.5"/>
+  <text x="715" y="373" text-anchor="middle" fill="#1a202c" font-size="13" font-weight="600">my apps</text>
+  <text x="715" y="390" text-anchor="middle" fill="#7b341e" font-size="10">get-public-ip, etc.</text>
+
+  <!-- Sealed secrets note -->
+  <rect x="115" y="435" width="675" height="55" rx="8" fill="#faf5ff" stroke="#9f7aea" stroke-width="1.5"/>
+  <text x="452" y="458" text-anchor="middle" fill="#553c9a" font-size="12" font-weight="600">Sealed Secrets</text>
+  <text x="452" y="475" text-anchor="middle" fill="#6b46c1" font-size="10.5">credentials get encrypted before they ever touch git — only this cluster can unlock them</text>
+
+  <!-- Footer -->
+  <text x="450" y="535" text-anchor="middle" fill="#718096" font-size="11">all of this, running on one Raspberry Pi 4</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+</svg>
