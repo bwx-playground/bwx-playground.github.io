@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "I Put a Tiny Cloud in My House (Part 1 of 3)"
+date: 2026-08-02 06:00:00 +0700
 categories: kubernetes homelab
 tags: k3s raspberry_pi devops
 ---
