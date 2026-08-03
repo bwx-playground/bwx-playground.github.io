@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" font-family="Helvetica, Arial, sans-serif">
+  <rect x="0" y="0" width="900" height="640" fill="#f7f8fa" rx="12"/>
+
+  <text x="450" y="35" text-anchor="middle" fill="#1a202c" font-size="15" font-weight="700">the one service that ships itself</text>
+
+  <!-- Step 1: tag push -->
+  <rect x="330" y="60" width="240" height="55" rx="8" fill="#1a365d"/>
+  <text x="450" y="83" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="600">git push v1.4.0</text>
+  <text x="450" y="99" text-anchor="middle" fill="#bee3f8" font-size="10.5">a semver tag, nothing else</text>
+
+  <line x1="450" y1="115" x2="450" y2="150" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow3)"/>
+
+  <!-- Step 2: self-hosted runner build -->
+  <rect x="290" y="155" width="320" height="70" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="450" y="180" text-anchor="middle" fill="#1a202c" font-size="12.5" font-weight="600">self-hosted runner (macmini)</text>
+  <text x="450" y="197" text-anchor="middle" fill="#4a5568" font-size="10.5">go vet, go build, docker buildx</text>
+  <text x="450" y="212" text-anchor="middle" fill="#4a5568" font-size="10.5">push linux/arm64 image to zot</text>
+
+  <line x1="450" y1="225" x2="450" y2="260" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow3)"/>
+
+  <!-- Step 3: trivy gate -->
+  <rect x="290" y="265" width="320" height="60" rx="8" fill="#fffaf0" stroke="#dd6b20" stroke-width="1.5"/>
+  <text x="450" y="290" text-anchor="middle" fill="#1a202c" font-size="12.5" font-weight="600">Trivy scan — the gate</text>
+  <text x="450" y="307" text-anchor="middle" fill="#7b341e" font-size="10.5">any CRITICAL/HIGH finding stops here</text>
+
+  <line x1="450" y1="325" x2="450" y2="360" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow3)"/>
+  <text x="470" y="348" fill="#4a5568" font-size="10">only reached if the scan passed</text>
+
+  <!-- Step 4: cross-repo commit -->
+  <rect x="250" y="365" width="400" height="70" rx="8" fill="#22543d"/>
+  <text x="450" y="390" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="600">CI commits straight to k3s-raspi-service-deployment</text>
+  <text x="450" y="407" text-anchor="middle" fill="#c6f6d5" font-size="10.5">bumps image.tag in values.yaml, using a PAT</text>
+  <text x="450" y="422" text-anchor="middle" fill="#c6f6d5" font-size="10.5">scoped to only that one repo</text>
+
+  <line x1="450" y1="435" x2="450" y2="470" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow3)"/>
+
+  <!-- Step 5: ArgoCD -->
+  <rect x="290" y="475" width="320" height="60" rx="8" fill="#553c9a"/>
+  <text x="450" y="500" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="600">ArgoCD notices, auto-syncs</text>
+  <text x="450" y="517" text-anchor="middle" fill="#e9d8fd" font-size="10.5">watching that repo's main branch</text>
+
+  <line x1="450" y1="535" x2="450" y2="565" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow3)"/>
+
+  <!-- Step 6: live -->
+  <rect x="310" y="570" width="280" height="55" rx="10" fill="#2f855a"/>
+  <text x="450" y="593" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="600">new version running on the Pi</text>
+  <text x="450" y="609" text-anchor="middle" fill="#dcfce7" font-size="10.5">no human touched a tag anywhere</text>
+
+  <!-- Side note -->
+  <rect x="30" y="155" width="220" height="130" rx="8" fill="#edf2f7" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="140" y="180" text-anchor="middle" fill="#1a202c" font-size="11.5" font-weight="600">everywhere else</text>
+  <text x="140" y="202" text-anchor="middle" fill="#4a5568" font-size="10">every other service in the</text>
+  <text x="140" y="217" text-anchor="middle" fill="#4a5568" font-size="10">cluster still gets its tag</text>
+  <text x="140" y="232" text-anchor="middle" fill="#4a5568" font-size="10">bumped by hand, on purpose —</text>
+  <text x="140" y="247" text-anchor="middle" fill="#4a5568" font-size="10">this is the one deliberate</text>
+  <text x="140" y="262" text-anchor="middle" fill="#4a5568" font-size="10">exception, not the new default</text>
+
+  <defs>
+    <marker id="arrow3" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+</svg>
