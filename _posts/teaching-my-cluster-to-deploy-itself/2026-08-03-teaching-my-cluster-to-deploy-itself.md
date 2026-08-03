@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Teaching My Cluster to Deploy Itself (Part 2 of 3)"
-date: 2026-08-02 07:00:00 +0700
+date: 2026-08-03 07:00:00 +0700
 categories: kubernetes homelab
 tags: gitops argocd terraform
 ---

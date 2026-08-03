@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "The Day DNS Broke Four Times in a Row (Part 3 of 3)"
-date: 2026-08-02 08:00:00 +0700
+date: 2026-08-04 08:00:00 +0700
 categories: kubernetes homelab
 tags: debugging dns cloudflare
 ---
