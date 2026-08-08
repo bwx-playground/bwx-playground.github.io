@@ -49,7 +49,7 @@ The honest options were: fail outright, silently mislabel an IPv6 address as if 
 
 The code is deliberately boring. The release pipeline is where I let myself do something I wouldn't do for anything with more blast radius: push a semver tag, and everything downstream happens without me touching another repo.
 
-![release pipeline](release-pipeline.svg)
+![release pipeline](/assets/img/release-pipeline.svg)
 
 Push `vX.Y.Z`, and a self-hosted runner — has to be self-hosted, since it needs LAN access to my unauthenticated internal registry — vets, builds, and pushes a `linux/arm64` image. A Trivy scan gates on any CRITICAL or HIGH finding before anything else happens. Only past that gate does CI check out `k3s-raspi-service-deployment` with a fine-grained PAT scoped to just that one repo, sed-replace the image tag in its `values.yaml`, and push straight to that repo's `main`. ArgoCD, already watching that branch with auto-sync on, takes it from there.
 

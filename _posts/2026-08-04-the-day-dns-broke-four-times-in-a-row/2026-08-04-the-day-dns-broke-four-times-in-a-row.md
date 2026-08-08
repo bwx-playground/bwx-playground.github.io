@@ -34,7 +34,7 @@ The deployment ran again. The actual container still couldn't be pulled — *"no
 
 Four layers. Four separate address books. Each one legitimately unaware of the other three. In hindsight it makes sense — a laptop, a phone, and a smart TV on the same wifi don't share a brain either — but living through it in real time felt like a very slow game of whack-a-mole.
 
-![four address books](four-address-books.svg)
+![four address books](/assets/img/four-address-books.svg)
 
 For anyone curious what one of those fixes actually looked like: my favorite is round two, the cluster's own internal address book. Rather than adding one entry and waiting to need a second one later for the next app, I taught it a wildcard rule instead — anything under my home domain resolves the same way, forever, automatically:
 

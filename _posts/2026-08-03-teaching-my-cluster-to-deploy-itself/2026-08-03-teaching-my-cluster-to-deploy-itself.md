@@ -26,7 +26,7 @@ The nice side effect of this split: the person writing the recipe (cluster conve
 
 Laid out, the whole flow looks like this:
 
-![gitops flow](gitops-flow.svg)
+![gitops flow](/assets/img/gitops-flow.svg)
 
 ## Who's allowed to watch what
 

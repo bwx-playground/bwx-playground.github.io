@@ -34,7 +34,7 @@ k3s is Kubernetes, just trimmed down to fit on small hardware — same ideas, mu
 
 Here's roughly how those pieces sit next to each other:
 
-![architecture overview](architecture-overview.svg)
+![architecture overview](/assets/img/architecture-overview.svg)
 
 Two doors in, one shared encrypted mesh on the inside, a handful of specialists (registry, certificates, secrets) doing one job each. Nothing in that picture is doing anything clever on its own — the interesting part is how little *I* have to do once it's wired up this way.
 
