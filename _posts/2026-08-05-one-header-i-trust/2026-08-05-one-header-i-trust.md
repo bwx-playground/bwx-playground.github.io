@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "The One Header I Trust"
-date: 2026-08-05 07:00:00 +0700
+date: 2026-08-05 08:00:00 +0700
 categories: kubernetes homelab
 tags: golang security cicd
 ---
